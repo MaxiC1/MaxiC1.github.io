@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maximiliano Casanova — Portafolio</title>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --surface: #1a1d24;
+      --border: #2a2e37;
+      --text: #e6e8eb;
+      --muted: #9aa1ac;
+      --accent: #6c8cff;
+      --accent-soft: rgba(108, 140, 255, 0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    .hero { padding-top: 120px; padding-bottom: 100px; }
+    .hero h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.5px; }
+    .hero .role { color: var(--accent); font-size: 1.2rem; margin-top: 8px; font-weight: 500; }
+    .hero p { color: var(--muted); font-size: 1.05rem; margin-top: 20px; max-width: 560px; }
+    .hero-links { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .btn-primary { background: var(--accent); color: #0f1115; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); }
+    .btn:hover { transform: translateY(-2px); }
+    h2 { font-size: 1.6rem; margin-bottom: 28px; letter-spacing: -0.3px; }
+    .about p { color: var(--muted); max-width: 640px; }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      background: var(--accent-soft); color: var(--accent);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;
+    }
+    .projects-grid { display: grid; gap: 20px; }
+    .project {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; transition: border-color 0.15s;
+    }
+    .project:hover { border-color: var(--accent); }
+    .project h3 { font-size: 1.2rem; margin-bottom: 8px; }
+    .project p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .project-tags span { font-size: 0.8rem; color: var(--muted); background: var(--bg); padding: 3px 10px; border-radius: 6px; }
+    .project-links { display: flex; gap: 16px; }
+    .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+    .project-links a:hover { text-decoration: underline; }
+    .contact-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .contact-links a { color: var(--text); text-decoration: none; font-size: 1rem; }
+    .contact-links a:hover { color: var(--accent); }
+    footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.85rem; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Maximiliano Casanova</h1>
+      <div class="role">Desarrollador Web</div>
+      <p>Desarrollo aplicaciones web y móviles. Busco mi primera oportunidad profesional para seguir creciendo y aportar en proyectos reales.</p>
+      <div class="hero-links">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn-outline">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="about" id="sobre-mi">
+    <div class="container">
+      <h2>Sobre mí</h2>
+      <p>Soy desarrollador con experiencia en proyectos académicos y personales, tanto web como móviles. He trabajado con Kotlin en aplicaciones Android y con JavaScript en sistemas de gestión, cubriendo el desarrollo desde la base de datos hasta la interfaz. Estoy buscando mi primer trabajo para aplicar lo aprendido y seguir formándome en un equipo profesional.</p>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="container">
+      <h2>Habilidades</h2>
+      <div class="skills-grid">
+        <span class="skill">Kotlin</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Android</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">PHP</span>
+        <span class="skill">MySQL</span>
+        <span class="skill">Git</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="container">
+      <h2>Proyectos</h2>
+      <div class="projects-grid">
+
+        <div class="project">
+          <h3>PictoComm</h3>
+          <p>App móvil diseñada con Kotlin para la asignatura de Aplicaciones Móviles.</p>
+          <div class="project-tags">
+            <span>Kotlin</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/MaxiC1/PictoComm" target="_blank">Código →</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>SGTHD</h3>
+          <p>Proyecto para el control de Tóner de clientes de Hugo Díaz y Cía.</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/MaxiC1/SGTHD" target="_blank">Código →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <div class="contact-links">
+        <a href="mailto:maximiliano.alexander.casanova@gmail.com" target="_blank">✉ Email</a>
+        <a href="https://github.com/MaxiC1" target="_blank">GitHub</a>
+        <a href="www.linkedin.com/in/maximiliano-casanova-b30884375" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © 2026 Maximiliano Casanova. Hecho con HTML y CSS.
+    </div>
+  </footer>
+
+</body>
+</html>
