@@ -1,156 +1,540 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-CL">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maximiliano Casanova — Portafolio</title>
-  <style>
-    :root {
-      --bg: #0f1115;
-      --surface: #1a1d24;
-      --border: #2a2e37;
-      --text: #e6e8eb;
-      --muted: #9aa1ac;
-      --accent: #6c8cff;
-      --accent-soft: rgba(108, 140, 255, 0.12);
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maximiliano Casanova · Páginas web y sistemas a medida</title>
+<meta name="description" content="Programador freelance en Viña del Mar. Diseño landing pages que te traen consultas y programo sistemas a medida: inventario, control de equipos, reservas y más.">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0E13" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Maximiliano Casanova · Páginas web y sistemas a medida">
+<meta property="og:description" content="Landing pages y sistemas a medida para tu negocio. Hablas directo con quien programa.">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<script>
+  /* Tema antes de pintar: lo guardado en este navegador, si no el del sistema. */
+  (function () {
+    var raiz = document.documentElement, tema = null;
+    try { tema = localStorage.getItem('tema'); } catch (e) {}
+    if (tema !== 'light' && tema !== 'dark') {
+      tema = raiz.getAttribute('data-theme') ||
+        (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 72px 0; border-bottom: 1px solid var(--border); }
-    section:last-child { border-bottom: none; }
-    .hero { padding-top: 120px; padding-bottom: 100px; }
-    .hero h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.5px; }
-    .hero .role { color: var(--accent); font-size: 1.2rem; margin-top: 8px; font-weight: 500; }
-    .hero p { color: var(--muted); font-size: 1.05rem; margin-top: 20px; max-width: 560px; }
-    .hero-links { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 10px 20px; border-radius: 8px;
-      text-decoration: none; font-weight: 500; font-size: 0.95rem;
-      transition: transform 0.15s, background 0.15s;
-    }
-    .btn-primary { background: var(--accent); color: #0f1115; }
-    .btn-outline { border: 1px solid var(--border); color: var(--text); }
-    .btn:hover { transform: translateY(-2px); }
-    h2 { font-size: 1.6rem; margin-bottom: 28px; letter-spacing: -0.3px; }
-    .about p { color: var(--muted); max-width: 640px; }
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-    .skill {
-      background: var(--accent-soft); color: var(--accent);
-      padding: 6px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500;
-    }
-    .projects-grid { display: grid; gap: 20px; }
-    .project {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 24px; transition: border-color 0.15s;
-    }
-    .project:hover { border-color: var(--accent); }
-    .project h3 { font-size: 1.2rem; margin-bottom: 8px; }
-    .project p { color: var(--muted); font-size: 0.95rem; margin-bottom: 14px; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-    .project-tags span { font-size: 0.8rem; color: var(--muted); background: var(--bg); padding: 3px 10px; border-radius: 6px; }
-    .project-links { display: flex; gap: 16px; }
-    .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-    .project-links a:hover { text-decoration: underline; }
-    .contact-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .contact-links a { color: var(--text); text-decoration: none; font-size: 1rem; }
-    .contact-links a:hover { color: var(--accent); }
-    footer { text-align: center; padding: 32px 0; color: var(--muted); font-size: 0.85rem; }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2rem; }
-      section { padding: 56px 0; }
-    }
-  </style>
+    raiz.setAttribute('data-theme', tema);
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/estilos.css">
+<script src="js/main.js" defer></script>
 </head>
 <body>
 
-  <header class="hero">
-    <div class="container">
-      <h1>Maximiliano Casanova</h1>
-      <div class="role">Desarrollador Web</div>
-      <p>Desarrollo aplicaciones web y móviles. Busco mi primera oportunidad profesional para seguir creciendo y aportar en proyectos reales.</p>
-      <div class="hero-links">
-        <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-        <a href="#contacto" class="btn btn-outline">Contacto</a>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-abajo" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></symbol>
+  <symbol id="i-arriba" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-pagina" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+  <symbol id="i-datos" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></symbol>
+  <symbol id="i-rayo" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+  <symbol id="i-llave" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-correo" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="i-codigo" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+  <symbol id="i-luna" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+  <symbol id="i-izq" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></symbol>
+  <symbol id="i-der" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-ampliar" viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></symbol>
+  <symbol id="i-aprobar" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+  <symbol id="i-grafico" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+  <symbol id="i-camion" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+</svg>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- ============================================================ cabecera -->
+<header class="cabecera" id="inicio">
+  <div class="contenedor cabecera-fila">
+    <a class="marca" href="#inicio">
+      <span class="marca-logo" aria-hidden="true">MC</span>
+      <span class="marca-texto">
+        <span class="marca-nombre">Maximiliano Casanova</span>
+        <span class="marca-sub">Desarrollo web</span>
+      </span>
+    </a>
+    <div class="cabecera-acciones">
+      <button type="button" class="boton-tema" id="boton-tema" aria-label="Cambiar a tema oscuro" title="Cambiar a tema oscuro">
+        <svg class="i icono-luna" width="20" height="20" aria-hidden="true"><use href="#i-luna"/></svg>
+        <svg class="i icono-sol" width="20" height="20" aria-hidden="true"><use href="#i-sol"/></svg>
+      </button>
+      <a class="boton-cotizar" href="#contacto">
+        <svg class="i" width="18" height="18" aria-hidden="true"><use href="#i-chat"/></svg>
+        <span class="boton-cotizar-texto">Cotizar</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- ============================================================ portada -->
+<section class="hero" aria-labelledby="hero-titulo">
+  <div class="contenedor hero-fila">
+    <div class="hero-texto">
+      <p class="hero-etiqueta">
+        <svg class="i solo-claro" width="16" height="16" aria-hidden="true"><use href="#i-pin"/></svg>
+        <span class="solo-oscuro acento" aria-hidden="true">//</span>
+        Programador freelance · Viña del Mar
+      </p>
+      <h1 class="hero-titulo" id="hero-titulo">Páginas web y sistemas <span class="acento">a medida</span> para tu negocio</h1>
+      <p class="hero-bajada">Diseño landing pages que te traen consultas y programo sistemas que ordenan tu trabajo diario: inventario, control de equipos, reservas o lo que tu empresa necesite. Hablas directo con quien programa.</p>
+      <div class="hero-botones">
+        <a class="boton boton-principal" href="https://wa.me/56968350835?text=Hola%20Maximiliano%2C%20quiero%20cotizar%20un%20proyecto.">
+          <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg>
+          Cotizar por WhatsApp
+        </a>
+        <a class="boton boton-secundario" href="#proyectos">
+          Ver proyectos
+          <svg class="i" width="18" height="18" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </a>
       </div>
+      <ul class="hero-checks">
+        <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Analista Programador (INACAP)</li>
+        <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Trabajo remoto en todo Chile</li>
+        <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Cotización sin costo</li>
+      </ul>
     </div>
-  </header>
 
-  <section class="about" id="sobre-mi">
-    <div class="container">
-      <h2>Sobre mí</h2>
-      <p>Soy desarrollador con experiencia en proyectos académicos y personales, tanto web como móviles. He trabajado con Kotlin en aplicaciones Android y con JavaScript en sistemas de gestión, cubriendo el desarrollo desde la base de datos hasta la interfaz. Estoy buscando mi primer trabajo para aplicar lo aprendido y seguir formándome en un equipo profesional.</p>
-    </div>
-  </section>
-
-  <section id="habilidades">
-    <div class="container">
-      <h2>Habilidades</h2>
-      <div class="skills-grid">
-        <span class="skill">Kotlin</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">Android</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">PHP</span>
-        <span class="skill">MySQL</span>
-        <span class="skill">Git</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="proyectos">
-    <div class="container">
-      <h2>Proyectos</h2>
-      <div class="projects-grid">
-
-        <div class="project">
-          <h3>PictoComm</h3>
-          <p>App móvil diseñada con Kotlin para la asignatura de Aplicaciones Móviles.</p>
-          <div class="project-tags">
-            <span>Kotlin</span>
+    <div class="hero-visual" aria-hidden="true">
+      <!-- tema claro: un sitio y una tarjeta del sistema de tóner -->
+      <div class="solo-claro visual-claro">
+        <div class="navegador">
+          <div class="navegador-barra">
+            <div class="puntos3"><span></span><span></span><span></span></div>
+            <div class="navegador-url">tunegocio.cl</div>
+            <div class="navegador-espacio"></div>
           </div>
-          <div class="project-links">
-            <a href="https://github.com/MaxiC1/PictoComm" target="_blank">Código →</a>
+          <div class="navegador-cuerpo">
+            <span class="mini-etiqueta">Servicio técnico</span>
+            <span class="mini-titulo">Reparación de impresoras con retiro a domicilio</span>
+            <div class="mini-lineas"><span></span><span></span></div>
+            <div class="mini-botones"><span>Cotizar por WhatsApp</span><span>Ver servicios</span></div>
+            <div class="mini-tarjetas">
+              <div><span></span><span></span><span></span></div>
+              <div><span></span><span></span><span></span></div>
+              <div><span></span><span></span><span></span></div>
+            </div>
           </div>
         </div>
-
-        <div class="project">
-          <h3>SGTHD</h3>
-          <p>Proyecto para el control de Tóner de clientes de Hugo Díaz y Cía.</p>
-          <div class="project-tags">
-            <span>JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="https://github.com/MaxiC1/SGTHD" target="_blank">Código →</a>
+        <div class="tarjeta-toner">
+          <div class="tarjeta-toner-cabeza"><span>Control de tóner</span><span class="tarjeta-toner-mes">Este mes</span></div>
+          <div class="tarjeta-toner-filas">
+            <div><p><span>Equipo 01 · Negro</span><b>82%</b></p><div class="barra"><span style="width: 82%"></span></div></div>
+            <div><p><span>Equipo 02 · Cian</span><b>46%</b></p><div class="barra"><span style="width: 46%"></span></div></div>
+            <div><p><span>Equipo 03 · Magenta</span><span class="cambiar-fila"><em>Cambiar</em><b>12%</b></span></p><div class="barra barra-baja"><span style="width: 12%"></span></div></div>
           </div>
         </div>
-
+      </div>
+      <!-- tema oscuro: terminal -->
+      <div class="solo-oscuro terminal">
+        <div class="terminal-barra">
+          <div class="puntos3"><span></span><span></span><span></span></div>
+          <span class="terminal-ruta">~/proyectos/tu-negocio</span>
+        </div>
+        <div class="terminal-cuerpo">
+          <div class="t-cmd"><span class="t-prompt">$</span> crear landing <span class="t-flag">--whatsapp --formulario</span></div>
+          <div class="t-ok"><svg class="i i-grueso" width="14" height="14"><use href="#i-check"/></svg><span>diseño adaptado a celular</span></div>
+          <div class="t-ok"><svg class="i i-grueso" width="14" height="14"><use href="#i-check"/></svg><span>formulario conectado a tu correo</span></div>
+          <div class="t-ok"><svg class="i i-grueso" width="14" height="14"><use href="#i-check"/></svg><span>dominio y certificado SSL</span></div>
+          <div class="t-cmd t-separado"><span class="t-prompt">$</span> crear sistema <span class="t-flag">--modulo inventario</span></div>
+          <div class="t-ok"><svg class="i i-grueso" width="14" height="14"><use href="#i-check"/></svg><span>usuarios con permisos</span></div>
+          <div class="t-ok"><svg class="i i-grueso" width="14" height="14"><use href="#i-check"/></svg><span>reportes en Excel</span></div>
+          <div class="t-fin"><svg class="i i-grueso" width="14" height="14"><use href="#i-flecha"/></svg><span>listo para publicar</span><span class="t-cursor"></span></div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contacto">
-    <div class="container">
-      <h2>Contacto</h2>
-      <div class="contact-links">
-        <a href="mailto:maximiliano.alexander.casanova@gmail.com" target="_blank">✉ Email</a>
-        <a href="https://github.com/MaxiC1" target="_blank">GitHub</a>
-        <a href="www.linkedin.com/in/maximiliano-casanova-b30884375" target="_blank">LinkedIn</a>
+<!-- ============================================================ servicios -->
+<section class="seccion seccion-servicios" id="servicios" aria-labelledby="servicios-titulo">
+  <div class="contenedor">
+    <div class="sec-cabecera">
+      <div class="sec-titulos">
+        <p class="eyebrow"><span class="eyebrow-num">01.</span> Servicios</p>
+        <h2 id="servicios-titulo">Lo que puedo hacer por tu negocio</h2>
+      </div>
+      <p class="sec-bajada">Desde una página para que te encuentren hasta un sistema completo con usuarios y base de datos.</p>
+    </div>
+    <div class="servicios-grilla">
+      <article class="servicio">
+        <div class="servicio-cabeza">
+          <span class="servicio-icono" aria-hidden="true"><svg class="i" width="22" height="22"><use href="#i-pagina"/></svg></span>
+          <span class="servicio-num" aria-hidden="true">01</span>
+        </div>
+        <h3>Landing pages</h3>
+        <p>Una página clara para presentar tu negocio y recibir consultas.</p>
+        <ul class="lista-check">
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Diseño para celular y computador</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Botón de WhatsApp y formulario</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Dominio, hosting y SSL listos</span></li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-cabeza">
+          <span class="servicio-icono" aria-hidden="true"><svg class="i" width="22" height="22"><use href="#i-datos"/></svg></span>
+          <span class="servicio-num" aria-hidden="true">02</span>
+        </div>
+        <h3>Sistemas a medida</h3>
+        <p>Software web hecho según cómo trabaja tu empresa.</p>
+        <ul class="lista-check">
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Inventario, stock y equipos</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Usuarios con clave y permisos</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Reportes y exportación a Excel</span></li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-cabeza">
+          <span class="servicio-icono" aria-hidden="true"><svg class="i" width="22" height="22"><use href="#i-rayo"/></svg></span>
+          <span class="servicio-num" aria-hidden="true">03</span>
+        </div>
+        <h3>Automatizaciones</h3>
+        <p>Menos trabajo manual en lo que repites cada semana.</p>
+        <ul class="lista-check">
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Excel y Google Sheets con fórmulas</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Scripts que calculan y ordenan</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Cobros y pagos en línea</span></li>
+        </ul>
+      </article>
+      <article class="servicio">
+        <div class="servicio-cabeza">
+          <span class="servicio-icono" aria-hidden="true"><svg class="i" width="22" height="22"><use href="#i-llave"/></svg></span>
+          <span class="servicio-num" aria-hidden="true">04</span>
+        </div>
+        <h3>Mantención y soporte</h3>
+        <p>Tu sitio funcionando y al día después de la entrega.</p>
+        <ul class="lista-check">
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Cambios de textos, fotos y precios</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Respaldos y actualizaciones</span></li>
+          <li><svg class="i i-grueso" width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg><span class="mas" aria-hidden="true">+</span><span>Soporte de computadores e impresoras</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ proyectos -->
+<section class="seccion seccion-proyectos" id="proyectos" aria-labelledby="proyectos-titulo">
+  <div class="contenedor">
+    <div class="sec-cabecera">
+      <div class="sec-titulos">
+        <p class="eyebrow"><span class="eyebrow-num">02.</span> Proyectos</p>
+        <h2 id="proyectos-titulo">Trabajos que he desarrollado</h2>
+      </div>
+      <p class="sec-bajada">Sistemas y sitios que he programado, desde el rubro de las fotocopiadoras hasta herramientas para el día a día.</p>
+    </div>
+    <div class="proyectos-grilla">
+
+      <article class="proyecto">
+        <div class="proyecto-imagen">
+          <img class="proyecto-foto" src="img/toner/inicio-administrador-800.webp" width="800" height="500" loading="lazy" decoding="async"
+               alt="Pantalla de inicio del sistema de control de tóner, con los cambios pendientes de aprobación">
+        </div>
+        <div class="proyecto-cuerpo">
+          <span class="proyecto-tipo">Sistema a medida</span>
+          <h3>Control de tóner para empresas de fotocopiadoras</h3>
+          <p>Registra clientes, equipos y cambios de tóner. Calcula cuánto rindió cada tóner con el contador, ordena las mantenciones del mes y exporta a Excel.</p>
+          <ul class="tags"><li>React</li><li>Supabase</li><li>PostgreSQL</li></ul>
+          <div class="proyecto-acciones">
+            <a class="enlace-flecha" href="#sistema-toner">Ver el sistema por dentro<svg class="i" width="16" height="16" aria-hidden="true"><use href="#i-abajo"/></svg></a>
+            <a class="enlace-flecha" href="https://wa.me/56968350835?text=Hola%20Maximiliano%2C%20me%20interesa%20una%20demo%20del%20sistema%20de%20control%20de%20t%C3%B3ner.">Pedir demo<svg class="i" width="16" height="16" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proyecto">
+        <div class="proyecto-imagen" aria-hidden="true">
+          <div class="mock mock-ventana">
+            <div class="mock-barra"><span></span><span></span><span></span></div>
+            <div class="mock-cuerpo">
+              <div class="mock-fila"><span class="mock-titulo">Arriendo de equipos</span><span class="mock-boton">Cotizar</span></div>
+              <div class="mock-equipos">
+                <div><span></span><span></span></div>
+                <div><span></span><span></span></div>
+                <div><span></span><span></span></div>
+                <div><span></span><span></span></div>
+              </div>
+              <div class="mock-form"><span class="mock-form-titulo"><span class="solo-claro">Formulario de cotización</span><span class="solo-oscuro">formulario → correo</span></span><span class="mock-linea"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="proyecto-cuerpo">
+          <span class="proyecto-tipo">Landing page</span>
+          <h3>Sitio para una empresa de arriendo de fotocopiadoras</h3>
+          <p>Catálogo de equipos y formulario de cotización que llega directo al correo, listo para publicarse con dominio propio y certificado SSL.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li></ul>
+        </div>
+      </article>
+
+      <article class="proyecto">
+        <div class="proyecto-imagen" aria-hidden="true">
+          <div class="mock mock-planilla">
+            <div class="planilla-fila planilla-cabeza"><span>Gasto</span><span>Monto</span><span>Pagado</span></div>
+            <div class="planilla-fila"><span>Luz</span><span><i style="width: 100%"></i></span><span><b class="casilla marcada"><svg class="i" width="10" height="10"><use href="#i-check"/></svg></b></span></div>
+            <div class="planilla-fila"><span>Internet</span><span><i style="width: 80%"></i></span><span><b class="casilla marcada"><svg class="i" width="10" height="10"><use href="#i-check"/></svg></b></span></div>
+            <div class="planilla-fila"><span>Plan celular</span><span><i style="width: 60%"></i></span><span><b class="casilla"></b></span></div>
+            <div class="planilla-fila"><span>Supermercado</span><span><i style="width: 90%"></i></span><span><b class="casilla"></b></span></div>
+            <div class="planilla-saldo"><span>Saldo fin de mes</span><i></i></div>
+          </div>
+        </div>
+        <div class="proyecto-cuerpo">
+          <span class="proyecto-tipo">Automatización</span>
+          <h3>Planilla de gastos que se arma sola</h3>
+          <p>Script para Google Sheets que crea la planilla completa: gastos fijos y diarios, una casilla para marcar lo pagado y el saldo de fin de mes calculado solo.</p>
+          <ul class="tags"><li>Google Sheets</li><li>Apps Script</li></ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ sistema de tóner -->
+<section class="seccion seccion-sistema" id="sistema-toner" aria-labelledby="sistema-titulo">
+  <div class="contenedor">
+    <div class="sec-cabecera">
+      <div class="sec-titulos">
+        <p class="eyebrow"><span class="eyebrow-num">03.</span> Proyecto destacado</p>
+        <h2 id="sistema-titulo">Control de tóner, por dentro</h2>
+      </div>
+      <p class="sec-bajada">Un sistema web para empresas que arriendan y dan servicio a fotocopiadoras. Ordena los cambios de tóner, las guías de despacho y los envíos de cada mes, con accesos para administrador, secretaria y técnico.</p>
+    </div>
+
+    <div class="recorrido">
+      <div class="visor" id="visor" role="tabpanel" aria-labelledby="pantalla-1">
+      <figure class="visor-figura">
+        <a class="visor-marco" id="visor-marco" href="img/toner/como-funciona-completa.webp">
+          <img id="visor-img" src="img/toner/como-funciona.webp"
+               srcset="img/toner/como-funciona-800.webp 800w, img/toner/como-funciona.webp 1600w"
+               sizes="(min-width: 1200px) 1104px, calc(100vw - 40px)" width="1600" height="1000" loading="lazy" decoding="async"
+               alt="Diagrama del recorrido de un cambio de tóner y del envío mensual">
+          <span class="visor-lupa"><svg class="i" width="16" height="16" aria-hidden="true"><use href="#i-ampliar"/></svg>Ver en grande</span>
+        </a>
+        <figcaption class="visor-pie">
+          <div class="visor-textos">
+            <p class="visor-contador"><span id="visor-n">1</span> de 14</p>
+            <h3 class="visor-titulo" id="visor-titulo">Cómo funciona</h3>
+            <p class="visor-desc" id="visor-desc">El recorrido de un cambio de tóner: el técnico anota el contador, el administrador lo aprueba, la secretaria pone la guía y el sistema calcula el rendimiento. Aparte, el envío mensual de tóners a cada cliente.</p>
+          </div>
+          <div class="visor-nav">
+            <button type="button" class="boton-icono" id="visor-anterior" aria-label="Pantalla anterior"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-izq"/></svg></button>
+            <button type="button" class="boton-icono" id="visor-siguiente" aria-label="Pantalla siguiente"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-der"/></svg></button>
+          </div>
+        </figcaption>
+      </figure>
+      </div>
+
+      <ol class="recorrido-lista" role="tablist" aria-label="Pantallas del sistema de control de tóner">
+        <li role="presentation"><a role="tab" id="pantalla-1" aria-controls="visor" aria-selected="true" href="img/toner/como-funciona-completa.webp" data-slug="como-funciona"
+          data-alt="Diagrama del recorrido de un cambio de tóner y del envío mensual"
+          data-desc="El recorrido de un cambio de tóner: el técnico anota el contador, el administrador lo aprueba, la secretaria pone la guía y el sistema calcula el rendimiento. Aparte, el envío mensual de tóners a cada cliente."><img src="img/toner/como-funciona-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Cómo funciona</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-2" aria-controls="visor" aria-selected="false" href="img/toner/inicio-administrador-completa.webp" data-slug="inicio-administrador"
+          data-alt="Inicio del administrador con cuatro cambios de tóner pendientes de aprobación"
+          data-desc="Los cambios que esperan aprobación, cada uno con el tipo de tóner por confirmar. Más abajo, gráficos de rendimiento y el historial reciente."><img src="img/toner/inicio-administrador-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Inicio del administrador</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-3" aria-controls="visor" aria-selected="false" href="img/toner/inicio-secretaria-completa.webp" data-slug="inicio-secretaria"
+          data-alt="Inicio de la secretaria con datos de entrega y guías pendientes"
+          data-desc="Lo que falta por hacer: tóners sin guía de despacho y datos de entrega por completar."><img src="img/toner/inicio-secretaria-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Inicio de la secretaria</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-4" aria-controls="visor" aria-selected="false" href="img/toner/nuevo-registro-completa.webp" data-slug="nuevo-registro"
+          data-alt="Formulario de nuevo registro con la búsqueda por número de serie"
+          data-desc="Se busca la máquina por número de serie y el sistema muestra el cliente, sus tóners y el último contador."><img src="img/toner/nuevo-registro-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Nuevo registro</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-5" aria-controls="visor" aria-selected="false" href="img/toner/registros-completa.webp" data-slug="registros"
+          data-alt="Tabla de registros de cambios de tóner con filtros de búsqueda"
+          data-desc="Todos los cambios de tóner, con filtros por fecha, cliente, modelo, tipo y número de serie. Se exportan a PDF o Excel."><img src="img/toner/registros-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Registros</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-6" aria-controls="visor" aria-selected="false" href="img/toner/historial-registro-completa.webp" data-slug="historial-registro"
+          data-alt="Panel con el historial de un registro: creado, aprobado, guía y despachado"
+          data-desc="Cada cambio guarda quién lo creó, quién lo aprobó, la guía y el despacho, en orden."><img src="img/toner/historial-registro-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Historial de un registro</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-7" aria-controls="visor" aria-selected="false" href="img/toner/envio-cliente-completa.webp" data-slug="envio-cliente"
+          data-alt="Pantalla de envío a cliente con el cálculo de tóners y las listas de pendientes"
+          data-desc="Con las copias del mes calcula cuántos tóners le corresponden a cada cliente, y el administrador aprueba o rechaza cada envío."><img src="img/toner/envio-cliente-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Envío a cliente</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-8" aria-controls="visor" aria-selected="false" href="img/toner/historial-envios-completa.webp" data-slug="historial-envios"
+          data-alt="Tabla del historial de envíos con filtros"
+          data-desc="Los envíos de cada cliente por tóner, mes y estado, con su guía de despacho."><img src="img/toner/historial-envios-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Historial de envíos</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-9" aria-controls="visor" aria-selected="false" href="img/toner/guia-despacho-completa.webp" data-slug="guia-despacho"
+          data-alt="Ventana para agregar la guía de despacho a tres tóners"
+          data-desc="Una guía puede cubrir varios tóners del mismo envío, con la persona que entrega y el día de despacho."><img src="img/toner/guia-despacho-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Guía de despacho</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-10" aria-controls="visor" aria-selected="false" href="img/toner/clientes-completa.webp" data-slug="clientes"
+          data-alt="Lista de clientes con RUT, ubicación y día de facturación"
+          data-desc="Cada cliente con su RUT, ubicación, día de facturación y si se le toma contador."><img src="img/toner/clientes-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Clientes</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-11" aria-controls="visor" aria-selected="false" href="img/toner/maquinas-completa.webp" data-slug="maquinas"
+          data-alt="Lista de máquinas instaladas con su serie, tóner y cliente"
+          data-desc="Cada equipo con su serie, tipo de tóner, contador inicial, guía de entrega y cliente."><img src="img/toner/maquinas-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Máquinas</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-12" aria-controls="visor" aria-selected="false" href="img/toner/toners-completa.webp" data-slug="toners"
+          data-alt="Lista de modelos de tóner con su rendimiento"
+          data-desc="Los modelos de tóner con lo que debería rendir cada uno en negro y en color."><img src="img/toner/toners-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Toners</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-13" aria-controls="visor" aria-selected="false" href="img/toner/usuarios-completa.webp" data-slug="usuarios"
+          data-alt="Lista de usuarios con sus roles"
+          data-desc="Los accesos al sistema, con rol de administrador, secretaria o técnico."><img src="img/toner/usuarios-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Usuarios</span></a></li>
+        <li role="presentation"><a role="tab" id="pantalla-14" aria-controls="visor" aria-selected="false" href="img/toner/configuracion-completa.webp" data-slug="configuracion"
+          data-alt="Configuración de marcas y tipos de tóner"
+          data-desc="Las marcas y los tipos de tóner, con cuánto menos rinde cada tipo."><img src="img/toner/configuracion-320.webp" width="320" height="200" alt="" loading="lazy" decoding="async"><span>Configuración</span></a></li>
+      </ol>
+      <p class="recorrido-nota">Las pantallas muestran datos de ejemplo.</p>
+    </div>
+
+    <ul class="sistema-claves">
+      <li>
+        <span class="clave-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-aprobar"/></svg></span>
+        <h3>Cambios con aprobación</h3>
+        <p>El técnico anota el contador y el administrador aprueba el cambio y confirma si el tóner es original, Katun o alternativo.</p>
+      </li>
+      <li>
+        <span class="clave-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-grafico"/></svg></span>
+        <h3>Rendimiento real</h3>
+        <p>Calcula cuántas copias rindió cada tóner y lo compara con lo que debería rendir según su tipo.</p>
+      </li>
+      <li>
+        <span class="clave-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-camion"/></svg></span>
+        <h3>Guías y despacho</h3>
+        <p>La secretaria agrega la guía de despacho, quién entrega y qué día sale. Una guía puede cubrir varios tóners.</p>
+      </li>
+      <li>
+        <span class="clave-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-calendario"/></svg></span>
+        <h3>Envío mensual</h3>
+        <p>Con las copias del mes calcula cuántos tóners le corresponden a cada cliente.</p>
+      </li>
+    </ul>
+
+    <div class="sistema-cta">
+      <div class="sistema-cta-texto">
+        <h3>¿Tienes una empresa de fotocopiadoras?</h3>
+        <p>Te muestro el sistema funcionando y lo ajustamos a tu forma de trabajar. Se instala y se configura para cada empresa, por eso su código no es público.</p>
+      </div>
+      <div class="sistema-cta-botones">
+        <a class="boton boton-principal" href="https://wa.me/56968350835?text=Hola%20Maximiliano%2C%20me%20interesa%20una%20demo%20del%20sistema%20de%20control%20de%20t%C3%B3ner.">
+          <svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-chat"/></svg>
+          Pedir una demo
+        </a>
+        <a class="boton boton-secundario" href="mailto:maximiliano.alexander.casanova@gmail.com?subject=Demo%20del%20sistema%20de%20control%20de%20t%C3%B3ner">
+          <svg class="i" width="18" height="18" aria-hidden="true"><use href="#i-correo"/></svg>
+          Escribir por correo
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="container">
-      © 2026 Maximiliano Casanova. Hecho con HTML y CSS.
+<!-- ============================================================ cómo trabajo -->
+<section class="seccion seccion-proceso" id="como-trabajo" aria-labelledby="proceso-titulo">
+  <div class="contenedor">
+    <div class="sec-cabecera sec-cabecera-sola">
+      <div class="sec-titulos">
+        <p class="eyebrow"><span class="eyebrow-num">04.</span> Cómo trabajo</p>
+        <h2 id="proceso-titulo">Un proceso simple, de la idea a la entrega</h2>
+      </div>
     </div>
-  </footer>
+    <ol class="pasos">
+      <li class="paso">
+        <div class="paso-cabeza"><span class="paso-num">01</span><span class="paso-linea" aria-hidden="true"></span></div>
+        <h3>Conversamos</h3>
+        <p>Me cuentas qué necesitas por WhatsApp o en una videollamada.</p>
+      </li>
+      <li class="paso">
+        <div class="paso-cabeza"><span class="paso-num">02</span><span class="paso-linea" aria-hidden="true"></span></div>
+        <h3>Propuesta</h3>
+        <p>Te envío alcance, precio y plazo por escrito antes de partir.</p>
+      </li>
+      <li class="paso">
+        <div class="paso-cabeza"><span class="paso-num">03</span><span class="paso-linea" aria-hidden="true"></span></div>
+        <h3>Desarrollo</h3>
+        <p>Vas viendo avances y pides ajustes durante el proyecto.</p>
+      </li>
+      <li class="paso">
+        <div class="paso-cabeza"><span class="paso-num">04</span><span class="paso-linea" aria-hidden="true"></span></div>
+        <h3>Entrega</h3>
+        <p>Publico el sitio o sistema, te enseño a usarlo y sigo disponible.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================ tecnologías -->
+<section class="seccion-tecnologias" aria-labelledby="tecnologias-titulo">
+  <div class="contenedor tecnologias-fila">
+    <h2 id="tecnologias-titulo"><span class="eyebrow-num">05.</span> Tecnologías con las que trabajo</h2>
+    <ul class="chips">
+      <li>React</li><li>TypeScript</li><li>JavaScript</li><li>Laravel</li><li>PHP</li>
+      <li>Python</li><li>Supabase</li><li>MySQL</li><li>Kotlin</li><li>Git</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ contacto -->
+<section class="seccion-contacto" id="contacto" aria-labelledby="contacto-titulo">
+  <div class="contenedor contacto-envoltura">
+    <div class="contacto-caja">
+      <div class="contacto-texto">
+        <p class="eyebrow"><span class="eyebrow-num">06.</span> Contacto</p>
+        <h2 id="contacto-titulo">¿Tienes un proyecto en mente?</h2>
+        <p>Cuéntame qué necesitas y te respondo con una propuesta sin costo. Si quieres ver cómo programo, mi código está en GitHub.</p>
+      </div>
+      <div class="contacto-enlaces">
+        <a class="contacto-enlace contacto-whatsapp" href="https://wa.me/56968350835?text=Hola%20Maximiliano%2C%20quiero%20cotizar%20un%20proyecto.">
+          <span class="contacto-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-chat"/></svg></span>
+          <span class="contacto-dato"><span class="contacto-etiqueta">WhatsApp</span><span class="contacto-valor">+56 9 6835 0835</span></span>
+          <svg class="i contacto-flecha" width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </a>
+        <a class="contacto-enlace" href="mailto:maximiliano.alexander.casanova@gmail.com">
+          <span class="contacto-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-correo"/></svg></span>
+          <span class="contacto-dato"><span class="contacto-etiqueta">Correo</span><span class="contacto-valor contacto-correo">maximiliano.alexander.<wbr>casanova<wbr>@gmail.com</span></span>
+          <svg class="i contacto-flecha" width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </a>
+        <a class="contacto-enlace" href="https://www.linkedin.com/in/maximiliano-casanova-b30884375">
+          <span class="contacto-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-linkedin"/></svg></span>
+          <span class="contacto-dato"><span class="contacto-etiqueta">LinkedIn</span><span class="contacto-valor">Maximiliano Casanova</span></span>
+          <svg class="i contacto-flecha" width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </a>
+        <a class="contacto-enlace" href="https://github.com/MaxiC1">
+          <span class="contacto-icono" aria-hidden="true"><svg class="i" width="20" height="20"><use href="#i-codigo"/></svg></span>
+          <span class="contacto-dato"><span class="contacto-etiqueta">GitHub</span><span class="contacto-valor">github.com/MaxiC1</span></span>
+          <svg class="i contacto-flecha" width="20" height="20" aria-hidden="true"><use href="#i-flecha"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="contenedor pie-fila">
+    <span>© 2026 Maximiliano Casanova · Viña del Mar, Chile</span>
+    <a href="#inicio">Volver arriba<svg class="i" width="16" height="16" aria-hidden="true"><use href="#i-arriba"/></svg></a>
+  </div>
+</footer>
+
+<!-- pantalla en grande -->
+<dialog class="ampliado" id="ampliado" aria-labelledby="ampliado-titulo">
+  <div class="ampliado-barra">
+    <p class="ampliado-titulo" id="ampliado-titulo">Cómo funciona</p>
+    <div class="ampliado-acciones">
+      <button type="button" class="ampliado-boton" id="ampliado-zoom" aria-pressed="false">Tamaño real</button>
+      <button type="button" class="ampliado-boton ampliado-icono" id="ampliado-anterior" aria-label="Pantalla anterior"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-izq"/></svg></button>
+      <button type="button" class="ampliado-boton ampliado-icono" id="ampliado-siguiente" aria-label="Pantalla siguiente"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-der"/></svg></button>
+      <button type="button" class="ampliado-boton ampliado-icono" id="ampliado-cerrar" aria-label="Cerrar"><svg class="i" width="20" height="20" aria-hidden="true"><use href="#i-cerrar"/></svg></button>
+    </div>
+  </div>
+  <div class="ampliado-cuerpo" id="ampliado-cuerpo">
+    <img id="ampliado-img" src="img/toner/como-funciona-completa.webp" alt="" loading="lazy" decoding="async">
+  </div>
+</dialog>
 
 </body>
 </html>
